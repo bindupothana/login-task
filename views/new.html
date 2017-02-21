@@ -1,23 +1,24 @@
 <div class="login">
-			<h2>Enter Task</h2>
+      <h2>Enter Task</h2>
 
-			
-					<label id="label" class="control-label">Task Name:</label>
-					<input type="text" class="form-control" ng-model="user.taskname" placeholder="Enter task Name"  />
-					<div ng-messages = "employeeForm.usertaskname.$error">
-						<div ng-message = "required"></div><br/>
-						
-					</div><br/>
-				<div class="form-group">
-								<label for="dob" class="control-label">Date</label><br />
-								<input type="date" id="dob" ng-model="user.dob" /> <br /><br />
-							</div>
+      
+          <label id="label" class="control-label">Task Name:</label>
+            <input type="text" class="form-control" id="taskName" name="taskName" ng-model="task.name" placeholder="Enter task Name"  /></br></br>
 
-
-							<div class="form-group">
-								<button ng-click = "submit()"    class="btn btn-primary">Submit</button>
-
-								<input type="reset" ng-click="resetForm()"  class="btn btn-primary" value="Reset" />
+         
+          </div><br/>
+        <div class="form-group">
+                <label for="date" class="control-label">Date</label><br />
+                <input type="date" id="date" ng-model="task.date" /> <br /><br />
+              </div>
 
 
-							</div>
+              <div class="form-group">
+                <button ng-click = "savetask(task)"    class="btn btn-primary">Submit</button>
+
+                 <button type="reset" ng-click="reset()"  class="btn btn-primary">Reset</button>        
+
+                
+
+
+              </div>
