@@ -24,5 +24,13 @@ app.factory('TaskService', function() {
        return List;
        }
 
+ factory.getTask = function(index){
+    var completedList =  JSON.parse(localStorage.getItem('completeList'));
+    console.log(angular.copy(completeList));
+     return completedList[index];
+    }
+
+       
+
       return factory;
      });
