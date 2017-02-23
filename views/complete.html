@@ -1,0 +1,29 @@
+<h2 class="text-center">List of Task</h2>
+<div class="container">
+  <hr>
+  
+  <span class="clerfix"></span>
+  <hr>
+  <table class="table table-striped">
+    
+      <tr>
+        <th>TaskName</th>
+        
+        <th>Date</th>
+        
+      </tr>
+       <tr ng-repeat = "task in newTask |filter: {is_complete : true}">
+        <td>{{task.name}}</td>
+      <td>{{task.date}}</td>
+        </tr>
+        
+      </tr>  
+    
+  </table>
+  <br>
+<button  type="button" class="btn btn-info btn-lg pull-right" data-toggle="modal" data-target="#myModal" ng-click="go_to_addnew_page()">Open New</button>
+
+
+
+  
+</div>

@@ -1,8 +1,9 @@
 
-<h2 class="text-center">List of Task</h2>
+<h2 class="text-center">To-Do-List</h2>
 <div class="container">
   <hr>
-  <button  type="button" class="btn btn-info btn-lg pull-right" data-toggle="modal" data-target="#myModal" ng-click="newtask()">Add New</button>
+  
+
 
   <span class="clerfix"></span>
   <hr>
@@ -12,19 +13,46 @@
         <th>TaskName</th>
         
         <th>Date</th>
+        <th>List</th>
+        <th>Delete</th>
+        
         
       </tr>
-       <tr ng-repeat = "task in newTask"> 
+       <tr ng-repeat = "task in newTask |filter: {is_complete : false}"> 
         <td>{{task.name}}</td>
-      <td>{{task.date}}</td> 
+      <td>{{task.date}}</td>
+      <td><a  ng-click="completeTak()">complete</a> 
+       <td><a  ng-click="delete(task)">Delete</a> 
+        
+        
         </tr> 
         
       </tr>  
     
   </table>
   <br>
+ 
+  <button  type="button" class="btn btn-info btn-lg pull-right" data-toggle="modal" data-target="#myModal" ng-click="newtask()">Add New</button>
+
+  <button  type="submit" class="btn btn-info btn-lg pull-right" data-toggle="modal" data-target="#myModal"  ng-click="complete()">complete list </button>
 
 
 
-  
+
+
+
+
 </div>
+ 
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,6 +1,6 @@
 'use strict';
 
-var loginApp = angular.module("loginApp",["ui.router"]);
+var loginApp = angular.module('loginApp',['ui.router','ngMessages']);
  loginApp.config(['$stateProvider', '$urlRouterProvider',function($stateProvider,$urlRouterProvider)
  {
   $urlRouterProvider.otherwise("/login")
@@ -19,18 +19,23 @@ var loginApp = angular.module("loginApp",["ui.router"]);
 
  .state("list",{
   url : "/list",
-  templateUrl : "views/list",
+  templateUrl : "views/list.html",
   controller : "listCtrl",
  })
 
-.state("new",{
-  url : "/new",
-  templateUrl : "views/new",
-  controller : "newCtrl",
+.state("task",{
+  url : "/task",
+  templateUrl : "views/task.html",
+  controller : "taskCtrl",
+ })
+
+.state("complete",{
+  url : "/complete",
+  templateUrl : "views/complete.html",
+  controller : "completeCtrl",
  })
 
 
-
-
 $urlRouterProvider.otherwise("/login")  
+
 }]);
