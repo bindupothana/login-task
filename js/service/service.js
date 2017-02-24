@@ -6,59 +6,86 @@ app.factory('TaskService', function() {
    
 
    factory.savetask = function(task){
-
    var List =  JSON.parse(localStorage.getItem('List'));
-    console.log(angular.copy(task));
-    if(List == null){
-     List = [];
-    }
+   console.log(angular.copy(task));
+           if(List == null){
+           List = [];
+            }
 
-        List.push(task);
-      console.log(angular.copy(List));
+    List.push(task);
+    console.log(angular.copy(List));
     return localStorage.setItem('List', JSON.stringify(List));
    }
-  factory.taskDetails = function(){
-   
+  
+       factory.taskDetails = function(){
        var List =  JSON.parse(localStorage.getItem('List'));
-       
-
        console.log(angular.copy(List));
        console.log(JSON.parse(localStorage.getItem('List')));
        return List;
-       }
+         }
 
 
 
        
- factory.getTask = function(task){
+    factory.getTask = function(task){
     var List =  JSON.parse(localStorage.getItem('List'));
     console.log(JSON.parse(localStorage.getItem('List')));
-
-
-       localStorage.setItem('List', JSON.stringify(List));
-
-    //return completeList;
-    return List[task];
-
-    }
-
-    factory.completeTak = function(task){
-
-    var List =  JSON.parse(localStorage.getItem('List')); 
     localStorage.setItem('List', JSON.stringify(List));
-   
-}
+    return List[task];
+     }
 
+       
 
-
-    factory.delete = function(task){
-      var List =  JSON.parse(localStorage.getItem('List'));
-        console.log(angular.copy(List));
-        List.splice(task, 1);
-        console.log(angular.copy(List));
-         localStorage.setItem('List', JSON.stringify(List));
+       factory.completeTak = function(task){
+        var List =  JSON.parse(localStorage.getItem('List')); 
+            for(var i =0; i < List.length; i++){
+                if(List[i].name == task.name){
+                List[i].is_complete = true;
+                 }
+             }
+        localStorage.setItem('List', JSON.stringify(List));
         return List;
-    }
+       
+          }
+
+
+
+      /*  factory.deletetask = function(task){
+        var List =  JSON.parse(localStorage.getItem('List'));
+         console.log("task...", task, List)
+         List.splice(task,1);
+         localStorage.setItem('List', JSON.stringify(List));
+                 //List.splice(task,1);
+
+         console.log("task...", task, List)
+        return List;
+      }*/
+
+
+
+
+
+               factory.deletetask = function(task){     
+                var task = 0;   
+                var List =  JSON.parse(localStorage.getItem('List'));
+
+               // var comArr = eval( $scope.companies );
+                      for( var i = 0; i < List.length; i++ ) {
+                           if( List[i].name == task.name ) {
+                                    task = i;
+                                     break;
+                             }
+                         }
+                          
+                   List.splice(task,1);
+                   localStorage.setItem('List', JSON.stringify(List));
+                   return List;
+   
+                  };
+
+
+
+
 
       return factory;
-     });
+});

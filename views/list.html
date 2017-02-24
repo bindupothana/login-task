@@ -18,12 +18,13 @@
         
         
       </tr>
-       <tr ng-repeat = "task in newTask |filter: {is_complete : false}"> 
+       <tr ng-repeat = "task in todoTasks |filter: {is_complete : false}"> 
         <td>{{task.name}}</td>
       <td>{{task.date}}</td>
-      <td><a  ng-click="completeTak()">complete</a> 
-       <td><a  ng-click="delete(task)">Delete</a> 
-        
+      <td><a  ng-click="completeTak(task)">complete</a> 
+      <td><a ng-click="deletetask(task)">Delete</a></td>
+        <td>
+    
         
         </tr> 
         
@@ -32,11 +33,11 @@
   </table>
   <br>
  
-  <button  type="button" class="btn btn-info btn-lg pull-right" data-toggle="modal" data-target="#myModal" ng-click="newtask()">Add New</button>
-
-  <button  type="submit" class="btn btn-info btn-lg pull-right" data-toggle="modal" data-target="#myModal"  ng-click="complete()">complete list </button>
 
 
+  <button  type="submit" class="btn btn-info btn-lg pull-right" data-toggle="modal" data-target="#myModal"  ng-click="completeList()">complete list </button>
+
+  <button  type="button" class="btn btn-info btn-lg pull-right" data-toggle="modal" data-target="#myModal" ng-click="newtask()" style="margin-right:10px;">Add New</button>
 
 
 
