@@ -50,17 +50,6 @@ app.factory('TaskService', function() {
 
 
 
-      /*  factory.deletetask = function(task){
-        var List =  JSON.parse(localStorage.getItem('List'));
-         console.log("task...", task, List)
-         List.splice(task,1);
-         localStorage.setItem('List', JSON.stringify(List));
-                 //List.splice(task,1);
-
-         console.log("task...", task, List)
-        return List;
-      }*/
-
 
 
 
@@ -69,7 +58,6 @@ app.factory('TaskService', function() {
                 var task = 0;   
                 var List =  JSON.parse(localStorage.getItem('List'));
 
-               // var comArr = eval( $scope.companies );
                       for( var i = 0; i < List.length; i++ ) {
                            if( List[i].name == task.name ) {
                                     task = i;

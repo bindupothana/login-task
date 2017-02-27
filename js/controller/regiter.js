@@ -8,12 +8,10 @@ app.controller('registerCtrl', function($scope, $stateParams,UserService, $state
 
 	    UserService.saveUsername(user);
 
-	//$scope.save=UserService.User();
+	
 	     $state.go('login');
 
 	 	  }
-//$scope.save=UserService.User();
-
 
 
  });
